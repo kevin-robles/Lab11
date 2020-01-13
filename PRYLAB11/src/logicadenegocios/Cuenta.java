@@ -5,12 +5,13 @@
  * @version 06/01/2020
  */
 package logicadenegocios;
+import util.Comparable;
 import java.util.Date;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public abstract class Cuenta{
+public abstract class Cuenta implements Comparable{
     
   protected int numCuenta = 0;
   protected Cliente duenio = null;
@@ -123,6 +124,10 @@ public abstract class Cuenta{
    * @return mensaje de error, o exito
    */
   public abstract String cobrarComisiones();
+  
+  public boolean menorQue(Comparable pOtroObjeto){
+    return getSaldo() < ((Cuenta) pOtroObjeto).getSaldo();
+  }
   
   /**
    * Metodo para convertir el objeto en una cadena de caracteres

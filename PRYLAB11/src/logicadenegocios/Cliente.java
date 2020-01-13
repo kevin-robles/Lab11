@@ -5,8 +5,9 @@
  * @version 06/01/2020
  */
 package logicadenegocios;
+import util.Comparable;
 
-public class Cliente{
+public class Cliente implements Comparable{
   private String cedula;
   private String nombre;
   private String apellido;
@@ -46,6 +47,10 @@ public class Cliente{
   
   public String getApellido(){
     return this.apellido;
+  }
+  
+  public boolean menorQue(Comparable otroObj){
+    return (getApellido().compareTo(((Cliente)otroObj).getApellido())<0 ? true:false);
   }
   
   /**
